@@ -54,11 +54,13 @@ export default function TodoForm({ onTodoAdded }) {
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur-lg opacity-75"></div>
           <div className="relative bg-gradient-to-br from-purple-500 via-purple-600 to-pink-500 rounded-2xl p-4 shadow-lg">
             <svg 
-              className="w-7 h-7 text-white" 
+              className="text-white" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
               strokeWidth={2.5}
+              width="28"
+              height="28"
             >
               <path 
                 strokeLinecap="round" 
@@ -80,9 +82,11 @@ export default function TodoForm({ onTodoAdded }) {
             <div className="flex items-center">
               <div className="bg-red-100 rounded-full p-2 mr-3">
                 <svg 
-                  className="w-5 h-5 text-red-600" 
+                  className="text-red-600" 
                   fill="currentColor" 
                   viewBox="0 0 20 20"
+                  width="20"
+                  height="20"
                 >
                   <path 
                     fillRule="evenodd" 
@@ -119,8 +123,15 @@ export default function TodoForm({ onTodoAdded }) {
               placeholder="e.g., Complete project documentation"
               disabled={loading}
             />
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+              <svg 
+                className="text-gray-400" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
               </svg>
             </div>
@@ -147,8 +158,15 @@ export default function TodoForm({ onTodoAdded }) {
               rows="5"
               disabled={loading}
             />
-            <div className="absolute right-4 bottom-4 text-gray-400">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="absolute right-4 bottom-4 text-gray-400 pointer-events-none">
+              <svg 
+                className="text-gray-400" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h7" />
               </svg>
             </div>
@@ -158,14 +176,16 @@ export default function TodoForm({ onTodoAdded }) {
         <button
           type="submit"
           disabled={loading}
-          className="w-full btn-primary ripple text-white font-bold py-5 px-8 rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-2xl text-lg tracking-wide"
+          className="w-full btn-primary ripple text-white font-bold py-4 px-8 rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-2xl transition-all duration-300 gap-2"
         >
           {loading ? (
             <>
               <svg 
-                className="animate-spin -ml-1 mr-3 h-6 w-6 text-white" 
+                className="animate-spin text-white" 
                 fill="none" 
                 viewBox="0 0 24 24"
+                width="20"
+                height="20"
               >
                 <circle 
                   className="opacity-25" 
@@ -181,16 +201,18 @@ export default function TodoForm({ onTodoAdded }) {
                   d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                 />
               </svg>
-              Creating Task...
+              <span>Creating Task...</span>
             </>
           ) : (
             <>
               <svg 
-                className="w-6 h-6 mr-3" 
+                className="text-white" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
                 strokeWidth={2.5}
+                width="20"
+                height="20"
               >
                 <path 
                   strokeLinecap="round" 
@@ -198,7 +220,7 @@ export default function TodoForm({ onTodoAdded }) {
                   d="M12 4v16m8-8H4" 
                 />
               </svg>
-              Add Task
+              <span>Add Task</span>
             </>
           )}
         </button>

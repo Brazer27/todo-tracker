@@ -96,18 +96,20 @@ export default function TodoItem({ todo, onUpdate, onDelete }) {
                 </div>
               )}
               
-              <div className="flex items-center gap-4 text-sm">
+              <div className="flex items-center gap-4 text-sm flex-wrap">
                 <div className={`flex items-center gap-2 px-3 py-2 rounded-xl ${
                   todo.completed 
                     ? 'bg-gray-100 text-gray-500' 
                     : 'bg-purple-50 text-purple-700'
                 }`}>
                   <svg 
-                    className="w-4 h-4" 
+                    className="flex-shrink-0" 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
                     strokeWidth={2}
+                    width="16"
+                    height="16"
                   >
                     <path 
                       strokeLinecap="round" 
@@ -127,9 +129,11 @@ export default function TodoItem({ todo, onUpdate, onDelete }) {
                 {todo.completed && (
                   <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-md">
                     <svg 
-                      className="w-4 h-4" 
+                      className="flex-shrink-0" 
                       fill="currentColor" 
                       viewBox="0 0 20 20"
+                      width="16"
+                      height="16"
                     >
                       <path 
                         fillRule="evenodd" 
@@ -143,19 +147,21 @@ export default function TodoItem({ todo, onUpdate, onDelete }) {
               </div>
             </div>
 
-            {/* Enhanced Delete Button */}
+            {/* Delete Button - Fixed size with explicit width/height */}
             <button
               onClick={handleDelete}
               disabled={loading}
-              className="flex-shrink-0 p-3 text-red-500 hover:text-white hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-600 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-md hover:shadow-lg"
+              className="flex-shrink-0 p-2 text-red-500 hover:text-white hover:bg-gradient-to-br hover:from-red-500 hover:to-pink-600 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed group shadow-md hover:shadow-lg"
               title="Delete task"
             >
               <svg 
-                className="w-6 h-6 group-hover:scale-110 transition-transform" 
+                className="group-hover:scale-110 transition-transform" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
                 strokeWidth={2}
+                width="20"
+                height="20"
               >
                 <path 
                   strokeLinecap="round" 

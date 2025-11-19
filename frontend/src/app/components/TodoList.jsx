@@ -11,11 +11,13 @@ export default function TodoList({ todos, onUpdate, loading }) {
             <div className="w-20 h-20 border-4 border-purple-200 border-t-purple-600 rounded-full animate-spin"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
               <svg 
-                className="w-10 h-10 text-purple-600" 
+                className="text-purple-600" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
                 strokeWidth={2}
+                width="40"
+                height="40"
               >
                 <path 
                   strokeLinecap="round" 
@@ -73,7 +75,7 @@ export default function TodoList({ todos, onUpdate, loading }) {
           {/* Tips */}
           <div className="bg-gradient-to-br from-purple-50 via-pink-50 to-purple-50 rounded-2xl p-6 text-left border border-purple-100 shadow-lg">
             <div className="flex items-center mb-4">
-              <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-2 mr-3">
+              <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-2 mr-3 flex-shrink-0">
                 <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M11 3a1 1 0 10-2 0v1a1 1 0 102 0V3zM15.657 5.757a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.414l.707-.707zM18 10a1 1 0 01-1 1h-1a1 1 0 110-2h1a1 1 0 011 1zM5.05 6.464A1 1 0 106.464 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zM5 10a1 1 0 01-1 1H3a1 1 0 110-2h1a1 1 0 011 1zM8 16v-1h4v1a2 2 0 11-4 0zM12 14c.015-.34.208-.646.477-.859a4 4 0 10-4.954 0c.27.213.462.519.476.859h4.002z" />
                 </svg>
@@ -82,15 +84,15 @@ export default function TodoList({ todos, onUpdate, loading }) {
             </div>
             <ul className="space-y-3">
               <li className="flex items-start text-sm text-gray-700">
-                <span className="text-purple-500 font-bold mr-3 mt-1">✓</span>
+                <span className="text-purple-500 font-bold mr-3 mt-1 flex-shrink-0">✓</span>
                 <span className="font-medium">Add a clear title for each task</span>
               </li>
               <li className="flex items-start text-sm text-gray-700">
-                <span className="text-purple-500 font-bold mr-3 mt-1">✓</span>
+                <span className="text-purple-500 font-bold mr-3 mt-1 flex-shrink-0">✓</span>
                 <span className="font-medium">Use descriptions for additional details</span>
               </li>
               <li className="flex items-start text-sm text-gray-700">
-                <span className="text-purple-500 font-bold mr-3 mt-1">✓</span>
+                <span className="text-purple-500 font-bold mr-3 mt-1 flex-shrink-0">✓</span>
                 <span className="font-medium">Check off tasks as you complete them</span>
               </li>
             </ul>
@@ -108,7 +110,7 @@ export default function TodoList({ todos, onUpdate, loading }) {
     <div>
       {/* Enhanced Stats Header */}
       <div className="glass rounded-3xl shadow-2xl p-8 mb-8 animate-fadeIn card-shine overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-200/30 to-pink-200/30 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
         
         <div className="flex items-center justify-between flex-wrap gap-6 relative z-10">
           <div className="flex items-center gap-5">

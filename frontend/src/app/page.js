@@ -8,6 +8,12 @@ export default function Home() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    fetchTodos();
+  }, []);
 
   const fetchTodos = async () => {
     try {
@@ -30,21 +36,21 @@ export default function Home() {
     }
   };
 
-  useEffect(() => {
-    fetchTodos();
-  }, []);
+  if (!mounted) {
+    return null;
+  }
 
   const completedCount = todos.filter(todo => todo.completed).length;
   const totalCount = todos.length;
   const progressPercentage = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
 
   return (
-    <main className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 relative">
-      <div className="max-w-6xl mx-auto">
+    <main className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 relative" style={{ position: 'relative', zIndex: 50 }}>
+      <div className="max-w-6xl mx-auto relative">
         {/* Header with modern design */}
         <header className="text-center mb-12 animate-fadeIn">
           <div className="inline-block mb-6 relative">
-            <div className="absolute inset-0 bg-white/30 blur-2xl rounded-full"></div>
+            <div className="absolute inset-0 bg-white/30 blur-2xl rounded-full" style={{ pointerEvents: 'none' }}></div>
             <div className="relative bg-white/25 backdrop-blur-xl rounded-full p-6 shadow-2xl border border-white/40">
               <svg 
                 className="w-20 h-20 text-white float-icon" 
@@ -76,7 +82,7 @@ export default function Home() {
 
           {/* Enhanced Progress Stats Card */}
           {totalCount > 0 && (
-            <div className="mt-8 glass rounded-3xl p-8 max-w-2xl mx-auto animate-scaleIn card-shine shadow-2xl">
+            <div className="mt-8 glass rounded-3xl p-8 max-w-2xl mx-auto animate-scaleIn card-shine shadow-2xl" style={{ position: 'relative', zIndex: 20 }}>
               <div className="flex justify-between items-center mb-6">
                 <div className="text-left">
                   <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-1">
@@ -128,7 +134,7 @@ export default function Home() {
 
         {/* Error Message with modern styling */}
         {error && (
-          <div className="glass rounded-3xl p-6 mb-8 border-l-4 border-red-500 animate-slideIn shadow-xl">
+          <div className="glass rounded-3xl p-6 mb-8 border-l-4 border-red-500 animate-slideIn shadow-xl" style={{ position: 'relative', zIndex: 20 }}>
             <div className="flex items-start">
               <div className="bg-red-100 rounded-full p-3 mr-4">
                 <svg 
@@ -150,7 +156,7 @@ export default function Home() {
                 <p className="text-red-600 mb-3">{error}</p>
                 <div className="bg-red-50 border border-red-200 rounded-xl p-4">
                   <p className="text-sm text-red-700 flex items-center gap-2">
-                    <span className="text-lg">🔌</span>
+                    <span className="text-lg">📌</span>
                     <span>Make sure the backend server is running on</span>
                     <code className="bg-red-100 px-3 py-1 rounded-lg font-mono text-red-800 font-semibold">
                       http://localhost:5000
@@ -163,17 +169,17 @@ export default function Home() {
         )}
 
         {/* Todo Form */}
-        <div className="mb-10 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
+        <div className="mb-10 animate-fadeIn" style={{ animationDelay: '0.1s', position: 'relative', zIndex: 20 }}>
           <TodoForm onTodoAdded={fetchTodos} />
         </div>
 
         {/* Todo List */}
-        <div className="animate-fadeIn" style={{ animationDelay: '0.2s' }}>
+        <div className="animate-fadeIn" style={{ animationDelay: '0.2s', position: 'relative', zIndex: 20 }}>
           <TodoList todos={todos} onUpdate={fetchTodos} loading={loading} />
         </div>
 
         {/* Enhanced Footer */}
-        <footer className="mt-16 text-center animate-fadeIn" style={{ animationDelay: '0.3s' }}>
+        <footer className="mt-16 text-center animate-fadeIn" style={{ animationDelay: '0.3s', position: 'relative', zIndex: 20 }}>
           <div className="glass rounded-2xl p-6 inline-block shadow-xl">
             <p className="text-gray-700 font-medium flex items-center gap-2">
               <span>Made with</span>
